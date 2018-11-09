@@ -21,8 +21,8 @@ const uint16_t MQTT_PORT   = 1883;                        // mqtt port
 String mqttDeviceNameWithMac;
 String mqttClientWithMac;
 
-const uint8_t TX_ENABLE_PIN = 5;
-const bool SWAP_SERIAL_PINS = true;
+const uint8_t TX_ENABLE_PIN = 1;
+const bool SWAP_SERIAL_PINS = false;
 const uint16_t RECIEVE_TIMEOUT_MS = 1000;
 WavinController wavinController(TX_ENABLE_PIN, SWAP_SERIAL_PINS, RECIEVE_TIMEOUT_MS);
 

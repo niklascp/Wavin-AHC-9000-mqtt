@@ -5,7 +5,7 @@
 WavinController::WavinController(uint8_t pin, bool swapSerialPins, uint16_t timeout_ms)
 {
   txEnablePin = pin;
-  digitalWrite(pin, LOW);
+  digitalWrite(pin, HIGH);
   pinMode(pin, OUTPUT);
 
   recieveTimeout_ms = timeout_ms;
@@ -83,13 +83,14 @@ void WavinController::transmit(uint8_t *data, uint8_t lenght)
   while (Serial.read() != -1);
 
   digitalWrite(txEnablePin, HIGH);
+  digitalWrite(txEnablePin, LOW);
 
   Serial.write(data, lenght);
 
   Serial.flush(); // Wait for data to be sent
   delayMicroseconds(250); // Wait for last char to be transmitted
 
-  digitalWrite(txEnablePin, LOW);
+  digitalWrite(txEnablePin, HIGH);
 }
 
 
