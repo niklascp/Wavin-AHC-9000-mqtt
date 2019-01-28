@@ -15,9 +15,6 @@ const String   MQTT_SUFFIX_SETPOINT_SET = "/target_set";
 const String   MQTT_SUFFIX_BATTERY      = "/battery";
 const String   MQTT_SUFFIX_OUTPUT       = "/output";
 
-const String   MQTT_CLIENT = "Wavin-AHC-9000-mqtt";       // mqtt client_id prefix. Will be suffixed with Esp8266 mac to make it unique
-const uint16_t MQTT_PORT   = 1883;                        // mqtt port
-
 String mqttDeviceNameWithMac;
 String mqttClientWithMac;
 
@@ -172,7 +169,7 @@ void setup()
   mqttDeviceNameWithMac = String(MQTT_DEVICE_NAME + macStr);
   mqttClientWithMac = String(MQTT_CLIENT + macStr);
 
-  mqttClient.setServer(MQTT_SERVER.c_str(), MQTT_PORT);
+  mqttClient.setServer(MQTT_SERVER, MQTT_PORT);
   mqttClient.setCallback(mqttCallback);
 }
 

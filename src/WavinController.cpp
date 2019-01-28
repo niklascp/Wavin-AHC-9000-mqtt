@@ -82,7 +82,6 @@ void WavinController::transmit(uint8_t *data, uint8_t lenght)
   // Empty recieve buffer before sending
   while (Serial.read() != -1);
 
-  digitalWrite(txEnablePin, HIGH);
   digitalWrite(txEnablePin, LOW);
 
   Serial.write(data, lenght);
